@@ -91,6 +91,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Chuleta2Theme {
+                //CafeteraLayout()
                 App("Chuleta Examen")
             }
         }
@@ -146,6 +147,9 @@ fun App(appName: String, modifier: Modifier = Modifier) {
     val scope = rememberCoroutineScope()
     val snackBarHostState = remember { SnackbarHostState() }
 
+    // Lista para la lazyColumn
+    val elementos = listOf<String>("Texto 1", "Hola", "Mañana", "bajjjgsf", "ejemplo", "abajo", "renderizado")
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         // [+] --------------------------- TopBar --------------------------- [+]
@@ -168,6 +172,9 @@ fun App(appName: String, modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+            LazyColumn(modifier = modifier.height(100.dp).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) { items(elementos) {
+                elemento -> Text(text = elemento)
+            } }
 
             // [+] --------------------------- LLamada CheckBox --------------------------- [+]
             CheckboxMinimalExample(

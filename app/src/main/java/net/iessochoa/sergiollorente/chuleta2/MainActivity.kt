@@ -92,7 +92,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Chuleta2Theme {
                 //CafeteraLayout()
-                App("Chuleta Examen")
+                //App("Chuleta Examen")
+                CartasTest()
             }
         }
     }
@@ -173,7 +174,16 @@ fun App(appName: String, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.Center
         ) {
             LazyColumn(modifier = modifier.height(100.dp).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) { items(elementos) {
-                elemento -> Text(text = elemento)
+                elemento -> Card(
+                modifier = Modifier.fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(4.dp)
+            ) {
+                Text(
+                    text = elemento,
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
             } }
 
             // [+] --------------------------- LLamada CheckBox --------------------------- [+]

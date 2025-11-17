@@ -1,5 +1,5 @@
 package net.iessochoa.sergiollorente.chuleta2
-
+//
 import android.R.attr.name
 import android.R.attr.rating
 import android.widget.Button

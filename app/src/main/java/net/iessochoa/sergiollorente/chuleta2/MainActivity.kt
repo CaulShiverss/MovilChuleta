@@ -83,6 +83,8 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.iessochoa.sergiollorente.chuleta2.ui.theme.Chuleta2Theme
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 
 class MainActivity : ComponentActivity() {
@@ -91,9 +93,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Chuleta2Theme {
-                //CafeteraLayout()
-                //App("Chuleta Examen")
-                CartasTest()
+                //CafeteraApp()
+                App("Chuleta Examen")
+                //CartasTest()
             }
         }
     }
@@ -169,7 +171,9 @@ fun App(appName: String, modifier: Modifier = Modifier) {
         },
     ) { innerPadding ->
         Column(
-            modifier = modifier.fillMaxSize().padding(innerPadding),
+            modifier = modifier.fillMaxSize().padding(innerPadding).verticalScroll(
+                rememberScrollState()
+            ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
